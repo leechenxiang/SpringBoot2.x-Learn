@@ -20,5 +20,4 @@ http://www.itzixi.com/ 或 http://www.ctolee.com/
 
 #### 求关注
 <img width="400" alt="公众号底部二维码" src="https://user-images.githubusercontent.com/15144005/109984699-024dd900-7d3f-11eb-8997-6430bef85831.png">
-![公众号底部知识星球二维码](https://user-images.githubusercontent.com/15144005/109984776-0f6ac800-7d3f-11eb-8292-cf13e1416800.JPG)
-
+<img width="400" alt="公众号底部二维码" src="https://user-images.githubusercontent.com/15144005/109984776-0f6ac800-7d3f-11eb-8292-cf13e1416800.JPG">
