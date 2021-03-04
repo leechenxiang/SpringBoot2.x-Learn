@@ -1,0 +1,71 @@
+#server:
+#  port: 8099
+
+self:
+  custom:
+    config:
+      requestUrl: http://www.itzixi.com
+      sdkSecret: abc123
+      values: ${server.port} 是我当前的tomcat服务器的端口号
+
+spring:
+  banner:
+    location: classpath:banner/banner.txt
+  servlet:
+    multipart:
+      max-file-size: 500KB      # 文件上传大小限制，设置最大值，不能超过该值，否则报错
+      max-request-size: 2MB     # 文件最大请求限制，用于批量上传
+  datasource:                                     # 数据源的相关配置
+    type: com.zaxxer.hikari.HikariDataSource      # 数据源的类型，可以更改为其他的数据源配置，比如druid
+#    type: com.alibaba.druid.pool.DruidDataSource  # 配置自定义的数据源：阿里druid
+    driver-class-name: com.mysql.jdbc.Driver      # mysql/MariaDB 的数据库驱动类名称
+    url: jdbc:mysql://localhost:3306/springboot-learn?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 30000               # 等待连接池分配连接的最大时间（毫秒），超过这个时长还没有可用的连接，则会抛出SQLException
+      minimum-idle: 5                         # 最小连接数
+      maximum-pool-size: 20                   # 最大连接数
+      auto-commit: true                       # 自动提交
+      idle-timeout: 600000                    # 连接超时的最大时长（毫秒），超时则会被释放（retired）
+      pool-name: DataSourceHikariCP           # 连接池的名字
+      max-lifetime: 18000000                  # 连接池的最大生命时长（毫秒），超时则会被释放（retired）
+      connection-test-query: SELECT 1
+  freemarker:
+    template-loader-path: classpath:/templates/ftl/
+    suffix: .ftl
+  thymeleaf:
+    prefix: classpath:/templates/html/
+    suffix: .html
+  profiles:
+    active: dev   # dev：开发环境；test：测试环境；prod：生产环境；pre：预发布
+
+# 整合mybatis
+mybatis:
+  type-aliases-package: com.itzixi.pojo       # 所有pojo类所在的包路径
+  mapper-locations: classpath:mapper/*.xml    # mapper映射文件
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   # 开启mybatis的日志实现，可以在控制台打印sql的输出
+
+# 通用mapper工具的配置
+mapper:
+  mappers: com.itzixi.my.mapper.MyMapper      # 配置MyMapper，包含了一些封装好的CRUD方法
+  not-empty: false                            # 在进行数据库操作的时候，username != null 是否会追加 username != ''
+  identity: MYSQL
+
+# 分页插件助手的配置
+pagehelper:
+  helper-dialect: MYSQL
+  support-methods-arguments: true
+
+logging:
+  level:
+    root: info
+
+# 监控节点（端点）的配置
+management:
+  endpoints:
+    enabled-by-default: true      # 默认开启监控节点
+    web:
+      exposure:
+        include: '*'              # 可以在web端开启所以监控节点

@@ -1,0 +1,4 @@
+<bean id="stu">
+    <property name="name" value="jack"></property>
+    <property name="age" value="20"></property>
+</bean>
