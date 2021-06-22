@@ -5,6 +5,7 @@
 
 目前已经制作的相关实战课以及架构师课程如下：
 * 架构师体系课程：https://class.imooc.com/sale/javaarchitect
+* 告别35岁瓶颈，转型项目管理：https://coding.imooc.com/class/476.html
 * SpringCloud体系化实战：https://coding.imooc.com/class/456.html
 * SpringBoot+小程序全栈实战https://coding.imooc.com/class/217.html
 * Zookeeper入门：https://coding.imooc.com/class/201.html
